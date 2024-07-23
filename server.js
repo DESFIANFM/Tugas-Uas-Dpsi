@@ -1,6 +1,10 @@
 const express = require('express');
 const connectDB = require('./config/db');
 const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
+
+// Load environment variables
+dotenv.config();
 
 const app = express();
 
@@ -11,8 +15,8 @@ connectDB();
 app.use(bodyParser.json());
 
 // Define Routes
-app.use('/api/users', require('./routes/user'));
-app.use('/api/auth', require('./Routes/auth'));
+app.use('/api/user', require('./routes/user'));
+app.use('/api/auth', require('./routes/auth'));
 
 const PORT = process.env.PORT || 5000;
 
