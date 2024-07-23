@@ -14,9 +14,9 @@ connectDB();
 app.use(bodyParser.json());
 
 // Define Routes
-app.use('/api/users', require('./routes/user'));
+app.use('/api/users', require('./Routes/users'));
 app.use('/api/auth', require('./routes/auth'));
-app.use('/api/products', require('./routes/product'));
+app.use('/api/product', require('./routes/product'));
 app.use('/api/checkout', require('./routes/checkout'));
 app.use('/api/orders', require('./routes/orders'));
 
