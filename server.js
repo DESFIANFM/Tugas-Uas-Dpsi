@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 app.use('/api/products', require('./routes/products'));
 app.use('/api/checkout', require('./routes/checkout'));
 app.use('/api/orders', require('./routes/orders'));
-app.use('/api/users', require('./routes/users')); // Make sure the file name is users.js
+app.use('/api/users', require('./Routes/users'));
 
 const PORT = process.env.PORT || 5000;
 
