@@ -2,6 +2,7 @@ const express = require('express');
 const connectDB = require('./config/db');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
+const path = require('path');
 
 dotenv.config();
 
@@ -14,11 +15,10 @@ connectDB();
 app.use(bodyParser.json());
 
 // Define Routes
-app.use('/api/users', require('./Routes/users'));
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/product', require('./routes/product'));
+app.use('/api/products', require('./routes/products'));
 app.use('/api/checkout', require('./routes/checkout'));
 app.use('/api/orders', require('./routes/orders'));
+app.use('/api/users', require('./routes/users')); // Make sure the file name is users.js
 
 const PORT = process.env.PORT || 5000;
 
