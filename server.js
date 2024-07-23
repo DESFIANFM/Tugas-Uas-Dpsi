@@ -15,7 +15,7 @@ connectDB();
 app.use(bodyParser.json());
 
 // Define Routes
-app.use('/api/user', require('./routes/user'));
+app.use('/api/users', require('./Routes/user'));
 app.use('/api/auth', require('./routes/auth'));
 
 const PORT = process.env.PORT || 5000;
