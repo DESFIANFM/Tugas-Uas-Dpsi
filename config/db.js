@@ -4,14 +4,18 @@ const mongoURI = config.get('mongoURI'); // Ensure this is using the correct for
 
 const connectDB = async () => {
     try {
+        // Log the mongoURI to ensure it's being set correctly
+        console.log('MongoDB URI:', mongoURI);
+
+        // Connect to MongoDB without deprecated options
         await mongoose.connect(mongoURI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
             // Removed deprecated options
         });
+
         console.log('MongoDB Connected...');
     } catch (err) {
-        console.error(err.message);
+        // Log the error message and additional details
+        console.error('Error connecting to MongoDB:', err.message);
         process.exit(1);
     }
 };
