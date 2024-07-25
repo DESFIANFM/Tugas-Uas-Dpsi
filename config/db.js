@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 // Load environment variables from .env file
 dotenv.config();
 
-const mongoURI = process.env.MONGO_URI || config.get('mongoURI'); // Fetch mongoURI from environment variables
+const mongoURI = process.env.mongoURI || config.get('mongoURI'); // Fetch mongoURI from environment variables
 
 const connectDB = async () => {
     try {
