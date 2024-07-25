@@ -1,18 +1,13 @@
 const mongoose = require('mongoose');
 const config = require('config');
-const db = config.get('mongoURI'); // Ensure 'mongoURI' is defined
+const mongoURI = config.get('mongoURI'); // Ensure this is using the correct format
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(db, {
+        await mongoose.connect(mongoURI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            useCreateIndex: true,
-            useFindAndModify: false,
-            writeConcern: {
-                w: 'majority',
-                wtimeout: 5000
-            }
+            // Removed deprecated options
         });
         console.log('MongoDB Connected...');
     } catch (err) {
