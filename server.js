@@ -22,4 +22,8 @@ app.use('/api/users', require('./routes/users'));
 
 const PORT = process.env.PORT || 5000;
 
+app.use('/', (req, res) => {
+    res.json({ message: "Hola" })
+})
+
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
