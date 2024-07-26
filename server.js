@@ -3,6 +3,12 @@ const connectDB = require('./config/db');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const path = require('path');
+const product = require('./routes/Products');
+const checkout = require('./routes/checkout');
+const orders = require('./routes/orders');
+const users = require('./routes/users');
+const Order = require('./models/order');
+
 
 dotenv.config();
 
@@ -15,10 +21,10 @@ connectDB();
 app.use(bodyParser.json());
 
 // Define Routes
-app.use('/api/products', require('./routes/products'));
-app.use('/api/checkout', require('./routes/checkout'));
-app.use('/api/orders', require('./routes/orders'));
-app.use('/api/users', require('./routes/users'));
+app.use('/api/products', product );
+app.use('/api/checkout', checkout);
+app.use('/api/orders', orders);
+app.use('/api/users', users );
 
 const PORT = process.env.PORT || 5000;
 
