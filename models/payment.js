@@ -1,24 +1,24 @@
-// models/Order.js
+// models/Payment.js
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-const Order = sequelize.define('Order', {
-  produkId: {
-    type: DataTypes.INTEGER,
-    allowNull: false
-  },
-  deskripsi: {
+const Payment = sequelize.define('Payment', {
+  metodePay: {
     type: DataTypes.STRING,
     allowNull: false
   },
-  namaProduk: {
+  pressCodemember: {
     type: DataTypes.STRING,
     allowNull: false
   },
-  harga: {
+  jumlah: {
     type: DataTypes.FLOAT,
     allowNull: false
+  },
+  transaksiBerhasil: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false
   }
 });
 
-module.exports = Order;
+module.exports = Payment;
